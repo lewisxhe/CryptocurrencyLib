@@ -26,7 +26,6 @@ struct CMCTickerResponse{
   double available_supply;
   double total_supply;
   uint32_t circulating_supply;
-  uint32_t total_supply;
 
   double percent_change_1h;
   double percent_change_24h;
