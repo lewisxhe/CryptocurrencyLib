@@ -32,7 +32,7 @@ String CoinMarketCapApi::SendGetToCoinMarketCap(String command)
         while (millis() - now < 3000) {
             while (client->available()) {
                 char c = client->read();
-                Serial.write(c);
+                // Serial.write(c);
                 if (!findHeaders) {
                     if (c == '{') {
                         findHeaders = true;
@@ -88,6 +88,8 @@ CMCTickerResponse CoinMarketCapApi::GetTickerInfo(String coinId, String currency
     responseObject.name = data["name"].as<String>();
     responseObject.symbol = data["symbol"].as<String>();
     responseObject.cmc_rank = data["cmc_rank"].as<int>();
+    responseObject.total_supply = data["total_supply"].as<uint32_t>();
+    responseObject.circulating_supply = data["circulating_supply"].as<uint32_t>();
 
     JsonObject quote = data["quote"][currency];
     responseObject.percent_change_1h = quote["percent_change_1h"].as<double>();
@@ -97,7 +99,7 @@ CMCTickerResponse CoinMarketCapApi::GetTickerInfo(String coinId, String currency
     responseObject.volume_24h = quote["volume_24h"].as<double>();
     responseObject.market_cap = quote["market_cap"].as<double>();
     responseObject.last_updated = quote["last_updated"].as<String>();
-
+    
     return responseObject;
 }
 

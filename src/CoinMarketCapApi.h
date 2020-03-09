@@ -23,8 +23,7 @@ struct CMCTickerResponse{
   double price_btc;
   double volume_24h;
   double market_cap;
-  double available_supply;
-  double total_supply;
+  uint32_t total_supply;
   uint32_t circulating_supply;
 
   double percent_change_1h;
