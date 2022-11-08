@@ -12,38 +12,38 @@
 
 #define COINMARKETCAP_HOST "pro-api.coinmarketcap.com"
 
-struct CMCTickerResponse{
-  String id;
-  String name;
-  String symbol;
-  String price_unit;
+struct CMCTickerResponse {
+    String id;
+    String name;
+    String symbol;
+    String price_unit;
 
-  int cmc_rank;
-  double price;
-  double price_btc;
-  double volume_24h;
-  double market_cap;
-  uint32_t total_supply;
-  uint32_t circulating_supply;
+    int cmc_rank;
+    double price;
+    double price_btc;
+    double volume_24h;
+    double market_cap;
+    uint32_t total_supply;
+    uint32_t circulating_supply;
 
-  double percent_change_1h;
-  double percent_change_24h;
-  double percent_change_7d;
-  String last_updated;
+    double percent_change_1h;
+    double percent_change_24h;
+    double percent_change_7d;
+    String last_updated;
 
-  String error;
+    String error;
 };
 
 
 class CoinMarketCapApi
 {
-  public:
-    CoinMarketCapApi (Client &client,String apikey);
+public:
+    CoinMarketCapApi (Client &client, String apikey);
     String SendGetToCoinMarketCap(String command);
     CMCTickerResponse GetTickerInfo(String coinId, String currency = "");
     int Port = 443;
 
-  private:
+private:
     Client *client;
     void closeClient();
     String __apikey;

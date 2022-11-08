@@ -99,7 +99,7 @@ CMCTickerResponse CoinMarketCapApi::GetTickerInfo(String coinId, String currency
     responseObject.volume_24h = quote["volume_24h"].as<double>();
     responseObject.market_cap = quote["market_cap"].as<double>();
     responseObject.last_updated = quote["last_updated"].as<String>();
-    
+
     return responseObject;
 }
 

@@ -1,20 +1,20 @@
 #######################################
-# Syntax Coloring Map For CoinMarketCapApi Library By lewis He
+# Syntax Coloring Map For CryptocurrencyLib Library By lewis He
 # github:https://github.com/lewisxhe
 #######################################
 
 #######################################
-# Datatypes                 (KEYWORD1)
+# Datatypes	(KEYWORD1)
 #######################################
-CMCTickerResponse           KEYWORD1
-CoinMarketCapApi            KEYWORD1
+CMCTickerResponse	KEYWORD1
+CoinMarketCapApi	KEYWORD1
 
 #######################################
 # Methods and Functions     (KEYWORD2)
 #######################################
 
-SendGetToCoinMarketCap      KEYWORD2
-GetTickerInfo	            KEYWORD2
+SendGetToCoinMarketCap	KEYWORD2
+GetTickerInfo	KEYWORD2
 
 #######################################
 # Instances (KEYWORD2)
