@@ -13,7 +13,7 @@
 #define COINMARKETCAP_HOST "pro-api.coinmarketcap.com"
 
 struct CMCTickerResponse {
-    String id;
+    int id;
     String name;
     String symbol;
     String price_unit;

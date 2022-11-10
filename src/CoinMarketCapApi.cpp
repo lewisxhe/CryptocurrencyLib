@@ -51,7 +51,6 @@ String CoinMarketCapApi::get(String command)
     uint32_t now;
 
     if (client->connect(COINMARKETCAP_HOST, Port)) {
-        Serial.println(".... connected to server");
         client->println("GET " + command + " HTTP/1.1");
         client->println("Host: " COINMARKETCAP_HOST);
         client->println(F("User-Agent: arduino/1.0.0"));
@@ -169,16 +168,16 @@ CMCTickerResponse CoinMarketCapApi::update(String coinId, String currency)
     cJSON *last_updated = cJSON_GetObjectItem(__currency, "last_updated");
 
     if (id) {
-        responseObject.id = id->valuestring;
+        responseObject.id = id->valueint;
     }
     if (name) {
-        responseObject.id = name->valuestring;
+        responseObject.name = name->valuestring;
     }
     if (symbol) {
-        responseObject.id = symbol->valuestring;
+        responseObject.symbol = symbol->valuestring;
     }
     if (cmc_rank) {
-        responseObject.cmc_rank = symbol->valueint;
+        responseObject.cmc_rank = cmc_rank->valueint;
     }
     if (total_supply) {
         responseObject.total_supply = total_supply->valueint;
