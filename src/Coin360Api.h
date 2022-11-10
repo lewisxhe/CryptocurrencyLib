@@ -7,9 +7,9 @@
 #pragma once
 
 #include <Arduino.h>
-#include <ArduinoJson.h>
+// #include <ArduinoJson.h>
 #include <WiFiClientSecure.h>
-#include <cJSON.h>
+#include <cJSON.h>  //ESP32 Core comes with cJSON
 
 #define COIN360_HOST "api.coin360.com"
 

@@ -101,11 +101,12 @@ Coin360Response Coin360Api::update(String coinId, String currency)
 
     responseObject.price_unit = currency;
 
-#if 00
+#if 0
     Serial.println("=======================");
     Serial.println(response);
     Serial.println("=======================");
 #endif
+
     cJSON *root = cJSON_Parse(response.c_str());
     if (!root) {
         responseObject.error = "cJSON parse failed!";
@@ -156,6 +157,8 @@ Coin360Response Coin360Api::update(String coinId, String currency)
         strftime(buf, 128, "%F %T", tm_t);
         responseObject.last_updated = buf;
     }
+
+    cJSON_Delete(root);
 
     return responseObject;
 }

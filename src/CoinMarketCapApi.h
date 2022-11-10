@@ -7,8 +7,8 @@
 #pragma once
 
 #include <Arduino.h>
-#include <ArduinoJson.h>
 #include <Client.h>
+#include <cJSON.h> //ESP32 Core comes with cJSON
 
 #define COINMARKETCAP_HOST "pro-api.coinmarketcap.com"
 
@@ -39,10 +39,11 @@ class CoinMarketCapApi
 {
 public:
     CoinMarketCapApi (Client &client, String apikey);
-    String SendGetToCoinMarketCap(String command);
-    CMCTickerResponse GetTickerInfo(String coinId, String currency = "");
+    const char *getRootCA();
+    CMCTickerResponse update(String coinId, String currency = "");
     int Port = 443;
-
+protected:
+    String get(String command);
 private:
     Client *client;
     void closeClient();
