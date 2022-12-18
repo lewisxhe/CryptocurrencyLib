@@ -20,7 +20,7 @@ CoinMarketCapApi api(client, APIKEY);
 
 void printTickerData(String ticker)
 {
-    CMCTickerResponse response = api.GetTickerInfo(ticker, "USD");
+    CMCTickerResponse response = api.update(ticker, "USD");
     if (response.error == "") {
         Serial.print("ID: ");
         Serial.println(response.id);
